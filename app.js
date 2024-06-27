@@ -25,6 +25,16 @@ app.get('/api/genres', (req, res) => {
   });
 });
 
+// create new  genre
+app.post('/api/genres', (req, res) => {
+  res.status(201).json({
+    status: 'success',
+    data: {
+      genres: '<new genre>',
+    },
+  });
+});
+
 // START THE SERVER
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
