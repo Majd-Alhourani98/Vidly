@@ -35,6 +35,16 @@ app.post('/api/genres', (req, res) => {
   });
 });
 
+// getting single  genre
+app.get('/api/genres/:id', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    data: {
+      genres: '<specified genre>',
+    },
+  });
+});
+
 // START THE SERVER
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
