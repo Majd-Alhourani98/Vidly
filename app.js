@@ -55,9 +55,9 @@ app.patch('/api/genres/:id', (req, res) => {
   });
 });
 
-// delete  genere
-app.patch('/api/genres/:id', (req, res) => {
-  res.status(200).json({
+// delete genere
+app.delete('/api/genres/:id', (req, res) => {
+  res.status(204).json({
     status: 'success',
     data: {
       genres: '<updated genre>',
