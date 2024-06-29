@@ -5,7 +5,7 @@ const {
   getSingleGenre,
   updateGenre,
   deleteGenre,
-} = require('../controllers/genreRoutes');
+} = require('../controllers/genreController');
 
 const router = express.Router();
 

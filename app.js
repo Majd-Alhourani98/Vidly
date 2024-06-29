@@ -1,16 +1,15 @@
 // IMPORT  REQUIRED PACKAGES
 const express = require('express');
-const dotenv = require('dotenv');
 const morgan = require('morgan');
 
 // IMPORT ROUTERS
 const genreRouter = require('./routes/genreRoutes');
 
-// LOAD ENVIRONMENT VARAIBLES
-dotenv.config();
-
 // CREATE EXPRESS APP
 const app = express();
+
+// Parsing JSON
+app.use(express.json());
 
 // LOGGING IN DEVELOPMENT
 if (process.env.NODE_ENV === 'development') {
@@ -20,6 +19,4 @@ if (process.env.NODE_ENV === 'development') {
 // USING Routers
 app.use('/api/genres', genreRouter);
 
-// START THE SERVER
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+module.exports = app;
