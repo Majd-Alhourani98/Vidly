@@ -2,9 +2,6 @@
 const express = require('express');
 const morgan = require('morgan');
 
-// IMPORT ROUTERS
-const genreRouter = require('./routes/genreRoutes');
-
 // CREATE EXPRESS APP
 const app = express();
 
@@ -17,6 +14,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // USING Routers
-app.use('/api/genres', genreRouter);
+app.use('/api/genres', require('./routes/genreRoutes'));
+app.use('/api/customers', require('./routes/customerRoutes'));
 
 module.exports = app;
