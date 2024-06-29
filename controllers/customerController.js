@@ -36,6 +36,7 @@ const getSingleCustomer = async (req, res, next) => {
     },
   });
 };
+
 const updateCustomer = async (req, res, next) => {
   const { id } = req.params;
   const customer = await Customer.findByIdAndUpdate(id, req.body, {
@@ -56,6 +57,7 @@ const updateCustomer = async (req, res, next) => {
     },
   });
 };
+
 const deleteCustomer = async (req, res, next) => {
   const { id } = req.params;
   const customer = await Customer.findByIdAndDelete(id, req.body);
