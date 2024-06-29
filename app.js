@@ -3,6 +3,9 @@ const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 
+// IMPORT ROUTERS
+const genreRouter = require('./routes/genreRoutes');
+
 // LOAD ENVIRONMENT VARAIBLES
 dotenv.config();
 
@@ -14,56 +17,8 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('tiny'));
 }
 
-// Genres Routes:
-// getting all genres
-app.get('/api/genres', (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    data: {
-      genres: '<list of genres>',
-    },
-  });
-});
-
-// create new  genre
-app.post('/api/genres', (req, res) => {
-  res.status(201).json({
-    status: 'success',
-    data: {
-      genres: '<new genre>',
-    },
-  });
-});
-
-// getting single  genre
-app.get('/api/genres/:id', (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    data: {
-      genres: '<specified genre>',
-    },
-  });
-});
-
-// Update genere
-app.patch('/api/genres/:id', (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    data: {
-      genres: '<updated genre>',
-    },
-  });
-});
-
-// delete genere
-app.delete('/api/genres/:id', (req, res) => {
-  res.status(204).json({
-    status: 'success',
-    data: {
-      genres: '<updated genre>',
-    },
-  });
-});
+// USING Routers
+app.use('/api/genres', genreRouter);
 
 // START THE SERVER
 const PORT = process.env.PORT || 3000;
